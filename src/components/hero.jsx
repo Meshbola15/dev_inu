@@ -1,6 +1,6 @@
 import React from "react";
 import inu from "../assets/inu_img.svg";
-import hero_txt from "../assets/hero_txt.svg";
+import hero_txt from "../assets/hero_txt.png";
 import hero_bg from "../assets/hero_bg_img.svg";
 import { useInView } from "react-intersection-observer";
 
