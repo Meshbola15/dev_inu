@@ -2,7 +2,7 @@ import { useState } from "react";
 import logo from "../assets/menu_logo.svg";
 
 const navLink = [
-  { name: "Home", path: "/" },
+  { name: "Home", path: "#home" },
   { name: "Chronicles", path: "#chronicles" },
   { name: "Roadmap", path: "#roadmap" },
   { name: "Faq", path: "#faq" },
@@ -54,23 +54,25 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className=" body_padding fixed  top-0 w-full z-[100]">
-      <section className="flex items-center justify-between z-60 p-4">
-        <a href="/" className="z-[60]">
-          <img src={logo} alt="" className="w-14 h-14  z-[60]" />
-        </a>
-        {/* desktop */}
-        <div className="hidden md:block">
-          <ul className="flex flex-row items-center text-white z-50 gap-4">
-            {navComponent()}
-            {btn()}
-          </ul>
-        </div>
-        {/* mobile */}
-        <MenuBar isOpen={isOpen} setIsOpen={setIsOpen} />
-      </section>
+    <>
+      <div className={` body_padding fixed top-0 w-full z-[200] ${isOpen ? "" : "glass"}`}>
+        <section className="flex items-center justify-between z-[150] p-4 ">
+          <a href="#home" className="z-[60]">
+            <img src={logo} alt="" className="w-14 h-14  z-[60]" />
+          </a>
+          {/* desktop */}
+          <div className="hidden md:block">
+            <ul className="flex flex-row items-center text-white z-50 gap-4">
+              {navComponent()}
+              {btn()}
+            </ul>
+          </div>
+          {/* mobile */}
+          <MenuBar isOpen={isOpen} setIsOpen={setIsOpen} />
+        </section>
+      </div>
       <div
-        className={`fixed z-40 bg-darkBlue top-0 left-0 bottom-0 right-0 md:hidden ${
+        className={`fixed z-[100] bg-darkBlue top-0 left-0 bottom-0 right-0 md:hidden ${
           isOpen ? "translate-x-0" : "translate-x-full"
         } transition duration-300 ease-linear`}
       >
@@ -82,7 +84,7 @@ const Navbar = () => {
           {btn()}
         </ul>
       </div>
-    </div>
+    </>
   );
 };
 

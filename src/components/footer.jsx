@@ -1,5 +1,5 @@
 // import React from 'react'
-import logo from "../assets/footer_logo.svg";
+import logo from "../assets/menu_logo.svg";
 
 const footerLink = [
   { name: "Home", path: "/" },
@@ -11,10 +11,10 @@ const footerLink = [
 const Footer = () => {
   return (
     <div>
-      <section className="body_padding flex flex-row justify-between items-start md:flex-row  md:items-center md:justify-between mt-[100px]">
-        <img src={logo} alt="logo" />
+      <section className="body_padding flex flex-col justify-between md:flex-row items-center md:justify-between mt-[100px] overflow-hidden">
+        <img src={logo} alt="logo" className="w-14 h-14" />
 
-        <section className="flex items-end md:items-center gap-5 flex-col md:flex-row ">
+        <section className="flex items-center gap-5 flex-row ">
           {footerLink.map((item, index) => (
             <a key={index} href={item.path}>
               {item.name}

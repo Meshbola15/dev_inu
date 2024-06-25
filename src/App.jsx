@@ -10,7 +10,7 @@ import Leadership from "./components/leadership";
 
 const App = () => {
   return (
-    <div className="bg-darkBlue p-0 m-0 box-border text-white font-Bricolage_Grotesque overflow-hidden">
+    <div className="bg-darkBlue p-0 m-0 box-border text-white font-Bricolage_Grotesque w-screen scroll-smooth overflow-hidden">
       <Navbar />
       <Hero />
       <Chapters />

@@ -1,14 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+* {
+  scroll-behavior: smooth;
+}
 
 @layer {
   .body_padding {
     @apply px-[5vw] md:px-[7vw] lg:px-[8vw];
   }
-  .top_padding{
-    @apply py-[5vh] md:py-[7vh] lg:py-[8vh]
+  .top_padding {
+    @apply py-[5vh] md:py-[7vh] lg:py-[8vh];
   }
+}
+
+.glass {
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.gradient {
+  background: rgb(147, 213, 227);
+  background: -moz-linear-gradient(
+    146deg,
+    rgba(147, 213, 227, 0.5) 0%,
+    rgba(106, 105, 125, 0.5) 30%,
+    rgba(212, 155, 211, 0.5) 70%,
+    rgba(78, 91, 116, 0.5) 100%
+  );
+  background: -webkit-linear-gradient(
+    146deg,
+    rgba(147, 213, 227, 0.5) 0%,
+    rgba(106, 105, 125, 0.5) 30%,
+    rgba(212, 155, 211, 0.5) 70%,
+    rgba(78, 91, 116, 0.5) 100%
+  );
+  background: linear-gradient(
+    146deg,
+    rgba(147, 213, 227, 0.5) 0%,
+    rgba(106, 105, 125, 0.5) 30%,
+    rgba(212, 155, 211, 0.5) 70%,
+    rgba(78, 91, 116, 0.5) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#93d5e3",endColorstr="#4e5b74",GradientType=1);
 }

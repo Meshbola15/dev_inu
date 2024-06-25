@@ -1,7 +1,6 @@
-// import React from 'react'
-
-import { useState } from "react";
+import React, { useState } from "react";
 import { AiFillPlusCircle } from "react-icons/ai";
+import { useInView } from "react-intersection-observer";
 
 const FaqList = [
   {
@@ -41,20 +40,32 @@ const FaqList = [
   },
 ];
 
-const FaqCard = ({ question, answer }) => {
+const FaqCard = ({ question, answer, index }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   return (
-    <div className="bg-darkBlue p-4 select-none border-b-[0.1px] border-yellow border-opacity-30">
+    <div
+      ref={ref}
+      className={`bg-darkBlue p-4 select-none border-b-[0.1px] border-yellow border-opacity-30 transition-opacity duration-1000 ${
+        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
+      style={{ transitionDelay: `${index * 0.1}s` }}
+    >
       <div
         onClick={() => setIsOpen(!isOpen)}
         className="flex justify-between items-center cursor-pointer"
         role="button"
         aria-expanded={isOpen}
       >
-        <h3 className="text-white text-[20px] md:text-[24px] lg:text-[32px] w-[70%]">{question}</h3>
+        <h3 className="text-white text-[20px] md:text-[24px] lg:text-[32px] w-[70%]">
+          {question}
+        </h3>
         <AiFillPlusCircle
-        onClick={() => setIsOpen(!isOpen)}
+          onClick={() => setIsOpen(!isOpen)}
           className={`text-yellow text-3xl transition-transform duration-300 ${
             isOpen ? "rotate-45" : "rotate-0"
           }`}
@@ -66,7 +77,9 @@ const FaqCard = ({ question, answer }) => {
           isOpen ? "max-h-screen" : "max-h-0"
         }`}
       >
-        {isOpen && <p className="text-[12px] md:text-text font-light mt-2">{answer}</p>}
+        {isOpen && (
+          <p className="text-[12px] md:text-text font-light mt-2">{answer}</p>
+        )}
       </div>
     </div>
   );
@@ -74,12 +87,17 @@ const FaqCard = ({ question, answer }) => {
 
 const Faq = () => {
   return (
-    <section className="body_padding top_padding relative">
-      <h2 className="text-center text-title_moblie md:text-title">Dev Inu FAQs</h2>
+    <section
+      id="faq"
+      className="body_padding top_padding relative animate-fade-up animate-once animate-duration-2000"
+    >
+      <h2 className="text-center text-title_moblie md:text-title">
+        Dev Inu FAQs
+      </h2>
       {FaqList.map((item, index) => (
-        <FaqCard key={index} question={item.question} answer={item.answer} />
+        <FaqCard key={index} question={item.question} answer={item.answer} index={index} />
       ))}
-        <div className="w-[600px] h-[600px] bg-yellow absolute rounded-full blur-[600px] bg-opacity-55 -bottom-[300px] -right-[300px]" />
+      <div className="w-[600px] h-[600px] bg-yellow absolute rounded-full blur-[600px] bg-opacity-55 -bottom-[300px] -right-[300px] overflow-hidden" />
     </section>
   );
 };

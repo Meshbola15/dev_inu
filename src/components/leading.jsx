@@ -1,7 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import dog from "../assets/dog_img.svg";
+import dummy from "../assets/dummy_image.png";
 
-const leadingtagsData = [
+const leadingTagsData = [
   { image: dog, text: "Dog 01" },
   { image: dog, text: "Dog 01" },
   { image: dog, text: "Dog 01" },
@@ -15,85 +16,94 @@ const leadingtagsData = [
   { image: dog, text: "Dog 01" },
 ];
 
+const leadingContainerData = [
+  { isFirst: false, position: "2nd" },
+  { isFirst: true, position: "1st" },
+  { isFirst: false, position: "3rd" },
+];
+
 const LeadingCont = ({ image, text }) => (
-  <div className="bg-gradient-to-tr from-pink-100 via-darkBlue to-purple-400 px-[1px] py-[1px] rounded-2xl">
-    <div className="w-full bg-darkBlue flex items-center justify-center px-3 py-2 gap-6 rounded-2xl">
-      <img src={image} alt="Dog" />
-      <p className="mr-6">{text}</p>
+  <div className="gradient px-[1px] py-[1px] rounded-lg md:rounded-2xl">
+    <div className="w-full bg-darkBlue flex items-center justify-center px-2  md:px-3 py-2 gap-2 md:gap-6 rounded-lg md:rounded-2xl">
+      <img src={image} alt="Dog" className="w-[30px] md:w-[40px]" />
+      <p className="mr-2 text-sm md:text-text md:mr-6">{text}</p>
     </div>
   </div>
 );
 
 const LeadingContainer = ({ isFirst, position }) => (
-  <div
-    className={`${
-      isFirst
-        ? "bg-yellow mb-[30px] px-[4px] py-[4px]"
-        : "bg-gradient-to-tr from-pink-100 via-darkBlue to-purple-400 mb-[20px] px-[3px] py-[3px]"
-    } w-fit relative rounded-2xl`}
-  >
-    <div
+  <div className="w-full flex items-center justify-center">
+    <section
       className={`${
-        isFirst ? "md:h-[300px] md:w-[300px] h-[200px] w-[200px]" : "h-[150px] w-[150px] md:h-[200px] md:w-[200px]"
-      } flex items-center justify-center relative rounded-2xl bg-darkBlue`}
+        isFirst ? "bg-yellow" : "gradient"
+      } px-[2px] py-[2px] w-fit rounded-2xl`}
     >
-      <div
-        className={`bg-yellow ${
-          isFirst
-            ? "h-[60px] w-[60px] -bottom-[30px]"
-            : "h-[50px] w-[50px] -bottom-[25px]"
-        } rounded-full absolute flex items-center justify-center text-darkBlue text-[16px]`}
-      >
-        {position}
+      <div className="relative flex items-center justify-center w-full">
+        <img
+          src={dummy}
+          alt=""
+          className={`${isFirst ? "w-[70vw]" : "w-[60vw]"} rounded-2xl`}
+        />
+        <div className="absolute bottom-[-30px] left-0 right-0 mx-auto self-center w-[60px] h-[60px] bg-yellow flex items-center justify-center px-3 py-2 rounded-full">
+          <p className="text-[20px] text-darkBlue text-center">{position}</p>
+        </div>
       </div>
-    </div>
+    </section>
   </div>
 );
 
 const Leading = () => {
-  // const containerRef = useRef(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
-  // const handleScroll = () => {
-  //   if (containerRef.current) {
-  //     const scrollPosition = containerRef.current.scrollLeft;
-  //     const containerWidth = containerRef.current.offsetWidth;
-  //     const children = Array.from(containerRef.current.children);
-
-  //     children.forEach((child) => {
-  //       const childWidth = child.offsetWidth;
-  //       const childPosition = child.offsetLeft;
-
-  //       if (
-  //         scrollPosition + containerWidth / 2 >= childPosition &&
-  //         scrollPosition + containerWidth / 2 <= childPosition + childWidth
-  //       ) {
-  //         child.classList.add("active");
-  //       } else {
-  //         child.classList.remove("active");
-  //       }
-  //     });
-  //   }
-  // };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setScrollPosition((prevPosition) =>
+        prevPosition === leadingContainerData.length - 1 ? 0 : prevPosition + 1
+      );
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div className="body_padding top_padding relative">
-      <section
-        // ref={containerRef}
-        // onScroll={handleScroll}
-        className="flex items-end flex-wrap justify-center gap-10 mb-10"
-      >
-        <div className="hidden md:block">
-          <LeadingContainer isFirst={false} position="3rd" />
-        </div>
-        <LeadingContainer isFirst={true} position="1st" />
-        <LeadingContainer isFirst={false} position="2nd" />
-        <div className="block md:hidden">
-          <LeadingContainer isFirst={false} position="3rd" />
-        </div>
-      </section>
+    <div className="relative body_padding top_padding my-10 w-full">
+      <div className="block md:hidden">
+        <section
+          className="flex items-center transition-transform duration-500"
+          style={{ transform: `translateX(-${scrollPosition * 100}%)` }}
+        >
+          {leadingContainerData.map((item, index) => (
+            <div key={index} className="w-full flex flex-shrink-0">
+              <LeadingContainer isFirst={item.isFirst} position={item.position} />
+            </div>
+          ))}
+        </section>
+      </div>
 
-      <section className="flex items-center justify-center flex-wrap gap-6 ">
-        {leadingtagsData.map((item, index) => (
+      <div className="hidden md:flex items-end gap-4 justify-center">
+        {leadingContainerData.map((item, index) => (
+          <div key={index}>
+            <section
+              className={`flex items-center justify-center relative ${
+                item.isFirst ? "bg-yellow mb-4" : "gradient"
+              } px-1 py-1 rounded-2xl`}
+            >
+              <div>
+                <img
+                  src={dummy}
+                  alt=""
+                  className={`${item.isFirst ? "w-[30vw]" : "w-[20vw]"} rounded-2xl`}
+                />
+                <div className="absolute bottom-[-30px] left-0 right-0 mx-auto self-center w-[60px] h-[60px] bg-yellow flex items-center justify-center px-3 py-2 rounded-full">
+                  <p className="text-[20px] text-darkBlue text-center">{item.position}</p>
+                </div>
+              </div>
+            </section>
+          </div>
+        ))}
+      </div>
+
+      <section className="flex items-center justify-center gap-3 md:gap-6 flex-wrap mt-9">
+        {leadingTagsData.map((item, index) => (
           <LeadingCont key={index} image={item.image} text={item.text} />
         ))}
       </section>

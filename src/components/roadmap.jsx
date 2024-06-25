@@ -4,7 +4,7 @@ import roadmap_mobile from "../assets/roadmap_mobile.svg";
 
 const Roadmap = () => {
   return (
-    <div className="body_padding top_padding">
+    <div id="roadmap" className="body_padding top_padding">
       <section>
         <h2 className="text-title_moblie md:text-title">Roadmap</h2>
         <p className="text-text font-light">

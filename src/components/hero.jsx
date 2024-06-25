@@ -2,13 +2,24 @@ import React from "react";
 import inu from "../assets/inu_img.svg";
 import hero_txt from "../assets/hero_txt.svg";
 import hero_bg from "../assets/hero_bg_img.svg";
+import { useInView } from "react-intersection-observer";
 
 const Hero = () => {
+  const { ref, inView } = useInView({ threshold: 0.5, triggerOnce: true });
   return (
-    <div className="relative overflow-hidden w-screen min-h-screen">
+    <div
+      id="home"
+      className={`relative overflow-hidden w-screen min-h-screen ${
+        inView ? "animate-fade-up" : ""
+      } mt-[50px] md:mt-0`}
+    >
       <section className="w-full min-h-screen flex flex-col-reverse body_padding top_padding items-center justify-center md:justify-between md:flex-row z-20">
         <section className="overflow-hidden flex flex-col items-center md:items-start">
-          <img src={hero_txt} alt="hero text" className="overflow-hidden" />
+          <img
+            src={hero_txt}
+            alt="hero text"
+            className="overflow-hidden animate-wiggle animate-infinite animate-duration-[3000ms]"
+          />
           <p className="text-text_grey text-text mt-4 text-center md:text-left">
             A Tale of Recognition and Innovation in the Crypto Realm
           </p>
@@ -20,7 +31,7 @@ const Hero = () => {
           <img
             src={inu}
             alt="dev inu image"
-            className="w-[70vw] md:w-[45vw] overflow-hidden"
+            className="w-[70vw] md:w-[45vw] animate-shake animate-infinite animate-duration-[3000ms] animate-delay-[2ms] animate-ease-linear animate-fill-both"
           />
         </section>
       </section>

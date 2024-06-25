@@ -1,6 +1,7 @@
 import React from "react";
 import image from "../assets/dog_img.svg";
 import { BiSolidUpArrow } from "react-icons/bi";
+import { useInView } from "react-intersection-observer";
 
 const boardData = [
   { image: image, text: "Dog 01", price: 5324, status: "Increased" },
@@ -23,13 +24,25 @@ const ordinalSuffix = (index) => {
 };
 
 const BoardCont = ({ image, text, price, index, status }) => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   const isTopThree = index <= 3;
+
   return (
-    <div className="bg-gradient-to-tr from-pink-100 via-darkBlue to-purple-400 pb-[1px] text-[12px]">
+    <div
+      ref={ref}
+      className={`gradient pb-[1px] text-[12px] transition-opacity duration-1000 ${
+        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
+      style={{ transitionDelay: `${index * 0.1}s` }}
+    >
       <div className="w-full bg-darkBlue flex items-center justify-between px-3 py-2">
         <article className="flex items-center gap-6">
           <div
-            className={` h-[30px] w-[30px] flex items-center justify-center rounded-full ${
+            className={`h-[30px] w-[30px] flex items-center justify-center rounded-full ${
               isTopThree ? "bg-yellow text-darkBlue" : "bg-none text-white"
             }`}
           >
@@ -40,7 +53,13 @@ const BoardCont = ({ image, text, price, index, status }) => {
         </article>
         <article className="flex items-center gap-2">
           <p>{price}</p>
-          <BiSolidUpArrow className={`text-[10px] ${status === "Increased" ? "text-green-500" : "text-red-500 rotate-180"}`} />
+          <BiSolidUpArrow
+            className={`text-[10px] ${
+              status === "Increased"
+                ? "text-green-500"
+                : "text-red-500 rotate-180"
+            }`}
+          />
         </article>
       </div>
     </div>
@@ -50,7 +69,9 @@ const BoardCont = ({ image, text, price, index, status }) => {
 const Leadership = () => {
   return (
     <div className="body_padding top_padding">
-      <h3 className="text-white text-title_moblie md:text-title mb-8">Leadership Board</h3>
+      <h3 className="text-white text-title_moblie md:text-title mb-8">
+        Leadership Board
+      </h3>
       <div>
         {boardData.map((item, index) => (
           <BoardCont
