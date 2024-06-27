@@ -7,7 +7,7 @@ const Chapters = () => {
   return (
     <div
       id="chronicles"
-      className="px-auto w-screen top_padding body_padding flex items-center justify-center flex-col"
+      className="px-auto w-screen top_padding body_padding flex items-center justify-center flex-col relative"
     >
       {ChaptersData.map((item, index) => (
         <ChapterBlock
@@ -22,6 +22,7 @@ const Chapters = () => {
           isLeft={item.isLeft}
         />
       ))}
+       <div className="md:w-[600px] h-[600px] bg-yellow absolute rounded-full blur-[400px] bg-opacity-55 bottom-[300px] -right-[300px] overflow-hidden" />
     </div>
   );
 };

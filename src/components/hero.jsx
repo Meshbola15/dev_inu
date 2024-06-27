@@ -3,13 +3,14 @@ import inu from "../assets/inu_img.svg";
 import hero_txt from "../assets/hero_txt.png";
 import hero_bg from "../assets/hero_bg_img.svg";
 import { useInView } from "react-intersection-observer";
+import second from '../../hacker.gif'
 
 const Hero = () => {
   const { ref, inView } = useInView({ threshold: 0.5, triggerOnce: true });
   return (
     <div
       id="home"
-      className={`relative overflow-hidden w-screen min-h-screen ${
+      className={`bg-[url("../hacker.gif")] bg-cover bg-center bg-opacity-5 bg-no-repeat relative overflow-hidden w-screen min-h-screen ${
         inView ? "animate-fade-up" : ""
       } mt-[50px] md:mt-0`}
     >
