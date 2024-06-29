@@ -7,6 +7,7 @@ import Leading from "./components/leading";
 import Faq from "./components/faq";
 import Footer from "./components/footer";
 import Leadership from "./components/leadership";
+import NFT from "./components/nft";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
       <Roadmap />
       <Leading />
       <Leadership />
+      <NFT />
       <Faq />
       <Footer />
     </div>
