@@ -89,7 +89,7 @@ const Faq = () => {
   return (
     <section
       id="faq"
-      className="body_padding top_padding relative animate-fade-up animate-once animate-duration-2000"
+      className="body_padding top_padding relative animate-fade-up animate-once animate-duration-2000 z-0"
     >
       <h2 className="text-left text-title_moblie md:text-title">
         Dev Inu FAQs
@@ -97,7 +97,7 @@ const Faq = () => {
       {FaqList.map((item, index) => (
         <FaqCard key={index} question={item.question} answer={item.answer} index={index} />
       ))}
-      <div className="w-[600px] h-[600px] bg-yellow absolute rounded-full blur-[600px] bg-opacity-55 -bottom-[300px] -right-[300px] overflow-hidden" />
+      <div className="w-[600px] h-[600px] bg-yellow absolute rounded-full blur-[600px] bg-opacity-55 -bottom-[300px] -right-[300px] overflow-hidden z-0 " />
     </section>
   );
 };

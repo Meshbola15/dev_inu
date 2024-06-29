@@ -6,17 +6,19 @@ const footerLink = [
   { name: "Chronicles", path: "#chronicles" },
   { name: "Roadmap", path: "#roadmap" },
   { name: "FAQ", path: "#faq" },
+  { name: "Telegram", path: "https://t.me/devinutoken" },
+  { name: "Twitter", path: "https://x.com/devinutoken" },
 ];
 
 const Footer = () => {
   return (
-    <div>
+    <div className="z-[100]">
       <section className="body_padding flex flex-col justify-between md:flex-row items-center md:justify-between mt-[100px] overflow-hidden">
         <img src={logo} alt="logo" className="w-14 h-14" />
 
-        <section className="flex items-center gap-5 flex-row ">
+        <section className="flex items-center gap-5 flex-row flex-wrap md:flex-nowrap justify-center z-[100]">
           {footerLink.map((item, index) => (
-            <a key={index} href={item.path}>
+            <a key={index} href={item.path} className="cursor-pointer z-[100]">
               {item.name}
             </a>
           ))}
