@@ -8,12 +8,14 @@ import Faq from "./components/faq";
 import Footer from "./components/footer";
 import Leadership from "./components/leadership";
 import NFT from "./components/nft";
+import Introduction from "./components/introduction";
 
 const App = () => {
   return (
     <div className="bg-darkBlue p-0 m-0 box-border text-white font-Bricolage_Grotesque w-screen scroll-smooth overflow-hidden">
       <Navbar />
       <Hero />
+      <Introduction />
       <Chapters />
       <Roadmap />
       <Leading />
