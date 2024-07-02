@@ -77,7 +77,7 @@ const Leading = () => {
           newOption,
         });
       } else {
-        await axios.post(`${backendLink}api/vote`, {
+        await axios.post(`${backendLink}/api/vote`, {
           option: newOption,
         });
       }

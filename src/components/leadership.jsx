@@ -26,21 +26,21 @@ const BoardCont = ({ image, text, votes, index, status }) => {
   return (
     <div
       ref={ref}
-      // className={`gradient pb-[1px] text-[12px] transition-opacity duration-1000 ${
-      //   inView
-      //     ? "opacity-100 translate-y-0"
-      //     : "opacity-0 translate-y-10 cursor-pointer"
-      // }`}
+      className={`gradient pb-[1px] text-[12px] transition-opacity duration-1000 ${
+        inView
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 translate-y-10 cursor-pointer"
+      }`}
       style={{ transitionDelay: `${index * 0.1}s` }}
     >
       <div className="w-full bg-darkBlue flex items-center justify-between px-3 py-2">
         <article className="flex items-center gap-6">
           <div
-            className={`h-[30px] w-[30px] flex items-center justify-center rounded-full ${
-              isTopThree ? "bg-yellow text-darkBlue" : "bg-none text-white"
+            className={`h-[30px] w-[30px] flex items-center justify-center rounded-full text-[12px] ${
+              isTopThree ? "bg-yellow text-darkBlue " : "bg-none text-white"
             }`}
           >
-            <p>{ordinalSuffix(index)}</p>
+            <p className="text-[12px]">{ordinalSuffix(index)}</p>
           </div>
           <img src={image} alt={`Image of ${text}`} />
           <p>{text}</p>
