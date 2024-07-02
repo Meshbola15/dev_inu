@@ -1,13 +1,17 @@
 // import React from 'react'
 import logo from "../assets/menu_logo.svg";
+import { FaTelegramPlane } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const footerLink = [
   { name: "Home", path: "/" },
   { name: "Chronicles", path: "#chronicles" },
   { name: "Roadmap", path: "#roadmap" },
   { name: "FAQ", path: "#faq" },
-  { name: "Telegram", path: "https://t.me/devinutoken" },
-  { name: "Twitter", path: "https://x.com/devinutoken" },
+];
+const socialIcon = [
+  { icon: <FaTelegramPlane />, path: "https://t.me/devinutoken" },
+  { icon: <FaXTwitter />, path: "https://x.com/devinutoken" },
 ];
 
 const Footer = () => {
@@ -20,6 +24,17 @@ const Footer = () => {
           {footerLink.map((item, index) => (
             <a key={index} href={item.path} className="cursor-pointer z-[100]">
               {item.name}
+            </a>
+          ))}
+          {socialIcon.map((item, index) => (
+            <a
+              key={index}
+              href={item.path}
+              target="_blank"
+              rel="noreferrer"
+              className="cursor-pointer"
+            >
+              {item.icon}
             </a>
           ))}
         </section>

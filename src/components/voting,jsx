@@ -1,0 +1,56 @@
+import React, { useEffect, useState } from "react";
+import Leading from "./leading";
+import Leadership from "./leadership";
+import axios from "axios";
+import { DogData } from "./DogData";
+
+const [data, setData] = useState([]);
+const [previousData, setPreviousData] = useState([]);
+
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const response = await axios.get("http://localhost:8000/api/votes");
+      const voteData = response.data;
+
+      // Map the vote data to the DogData, assuming votes option matches text
+      const updatedData = DogData.map((dog) => {
+        const voteItem = voteData.find((vote) => vote.option === dog.text);
+        return {
+          ...dog,
+          votes: voteItem ? voteItem.votes : 0,
+        };
+      });
+
+      // Sort data by votes in descending order
+      updatedData.sort((a, b) => b.votes - a.votes);
+
+      // Determine the status based on previous votes
+      const finalData = updatedData.map((dog, index) => {
+        const previousVotes =
+          previousData.find((item) => item.text === dog.text)?.votes || 0;
+        const status = dog.votes > previousVotes ? "Increased" : "Decreased";
+        return { ...dog, status };
+      });
+
+      setPreviousData(updatedData); // Save current votes as previous for the next fetch
+      setData(finalData); // Update state with final data including status
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+  console.log(data);
+
+  fetchData();
+}, []);
+
+const Voting = () => {
+  return (
+    <div>
+      <Leading refreshData={fetchData()} />
+      <Leadership data={data} />
+    </div>
+  );
+};
+
+export default Voting;
