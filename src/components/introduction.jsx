@@ -3,7 +3,7 @@ import React from "react";
 const Introduction = () => {
   const titleStyle = "text-[20px] md:text-[28px] mb-1 mt-4";
   const textStyle = "text-text_grey font-light text-[12px] md:text-[16px]";
-  const listItemStyle = "list-item text-text_grey flex flex-row mb-1";
+  const listItemStyle = "list-item text-text_grey inline-block mb-1 text-[12px] md:text-[16px] font-light";
   const listHeader = "font-bold mr-1";
 
   return (
