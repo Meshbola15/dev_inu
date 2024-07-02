@@ -12,9 +12,10 @@ const LeadingCont = ({ image, text, onVote, isSelected }) => (
     className={`gradient px-[1px] py-[1px] rounded-lg md:rounded-2xl `}
   >
     <div
-      className={`w-full bg-darkBlue flex items-center justify-center px-2 md:px-3 py-2 gap-2 md:gap-6 rounded-lg md:rounded-2xl ${
+      className={`w-full bg-darkBlue flex items-center justify-center px-2 md:px-3 py-2 gap-2 md:gap-6 rounded-lg md:rounded-2xl cursor-pointer hover:bg-yellow ${
         isSelected ? "bg-yellow" : ""
       }`}
+      onClick={onVote}
     >
       <img src={image} alt="Dog" className="w-[30px] md:w-[40px]" />
       <p className="mr-2 text-sm md:text-text md:mr-6">{text}</p>
@@ -43,28 +44,24 @@ const LeadingContainer = ({ isFirst, position, image }) => (
   </div>
 );
 
-const DesktopLeading = ({ isFirst, position, image, index })=>(
+const DesktopLeading = ({ isFirst, position, image, index }) => (
   <section
-  className={`flex items-center justify-center relative ${
-    isFirst ? "bg-yellow mb-4" : "gradient"
-  } px-1 py-1 rounded-2xl`}
->
-  <div className="rounded-2xl w-fit">
-    <img
-      src={image}
-      alt=""
-      className={`${
-        isFirst ? "w-[30vw]" : "w-[20vw]"
-      } rounded-2xl`}
-    />
-    <div className="absolute bottom-[-30px] left-0 right-0 mx-auto self-center w-[60px] h-[60px] bg-yellow flex items-center justify-center px-3 py-2 rounded-full">
-      <p className="text-[20px] text-darkBlue text-center">
-        {position}
-      </p>
+    className={`flex items-center justify-center relative ${
+      isFirst ? "bg-yellow mb-4" : "gradient"
+    } px-1 py-1 rounded-2xl`}
+  >
+    <div className="rounded-2xl w-fit">
+      <img
+        src={image}
+        alt=""
+        className={`${isFirst ? "w-[30vw]" : "w-[20vw]"} rounded-2xl`}
+      />
+      <div className="absolute bottom-[-30px] left-0 right-0 mx-auto self-center w-[60px] h-[60px] bg-yellow flex items-center justify-center px-3 py-2 rounded-full">
+        <p className="text-[20px] text-darkBlue text-center">{position}</p>
+      </div>
     </div>
-  </div>
-</section>
-)
+  </section>
+);
 
 const Leading = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -171,9 +168,21 @@ const Leading = () => {
          
           </div>
         ))} */}
-        <DesktopLeading position={leadingContainerData[1]?.position} image={leadingContainerData[1]?.image} isFirst={false} />
-        <DesktopLeading position={leadingContainerData[0]?.position} image={leadingContainerData[0]?.image} isFirst={true} />
-        <DesktopLeading position={leadingContainerData[2]?.position} image={leadingContainerData[2]?.image} isFirst={false} />
+        <DesktopLeading
+          position={leadingContainerData[1]?.position}
+          image={leadingContainerData[1]?.image}
+          isFirst={false}
+        />
+        <DesktopLeading
+          position={leadingContainerData[0]?.position}
+          image={leadingContainerData[0]?.image}
+          isFirst={true}
+        />
+        <DesktopLeading
+          position={leadingContainerData[2]?.position}
+          image={leadingContainerData[2]?.image}
+          isFirst={false}
+        />
       </div>
 
       <section className="flex items-center justify-center gap-3 md:gap-6 flex-wrap mt-9">

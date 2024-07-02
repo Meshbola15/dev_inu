@@ -3,7 +3,7 @@ import React from "react";
 const Introduction = () => {
   const titleStyle = "text-[20px] md:text-[28px] mb-1 mt-4";
   const textStyle = "text-text_grey font-light text-[12px] md:text-[16px]";
-  const listItemStyle = "list-item text-text_grey inline-block mb-1 text-[12px] md:text-[16px] font-light";
+  const listItemStyle = "list-item text-text_grey inline-block mb-2 text-[11px] md:text-[14px] font-light";
   const listHeader = "font-bold mr-1";
 
   return (
@@ -27,7 +27,7 @@ const Introduction = () => {
           spirit of developers in the crypto ecosystem.
         </p>
 
-        <h3 className={titleStyle}>Utilities</h3>
+        <h3 className={`${titleStyle} mb-2`}>Utilities</h3>
         <ul className="list-disc ml-5">
           <li className={listItemStyle}>
             <h4 className={listHeader}>NFT Collection:</h4>
