@@ -10,7 +10,7 @@ const Hero = () => {
   return (
     <div
       id="home"
-      className={`bg-[url("../hacker.gif")] bg-cover bg-center bg-opacity-5 bg-no-repeat relative overflow-hidden w-screen min-h-screen ${
+      className={` relative overflow-hidden w-screen min-h-screen ${
         inView ? "animate-fade-up" : ""
       } mt-[50px] md:mt-0`}
     >

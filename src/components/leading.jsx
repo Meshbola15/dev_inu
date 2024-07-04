@@ -17,7 +17,7 @@ const LeadingCont = ({ image, text, onVote, isSelected }) => (
       }`}
       onClick={onVote}
     >
-      <img src={image} alt="Dog" className="w-[30px] md:w-[40px]" onClick={onVote} />
+      <img src={image} alt="Dog" className="w-[60px] md:w-[80px]" onClick={onVote} />
       <p className="mr-2 text-sm md:text-text md:mr-6" onClick={onVote}>{text}</p>
     </div>
   </div>

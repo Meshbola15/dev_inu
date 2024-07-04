@@ -14,8 +14,10 @@ const App = () => {
   return (
     <div className="bg-darkBlue p-0 m-0 box-border text-white font-Bricolage_Grotesque w-screen scroll-smooth overflow-hidden">
       <Navbar />
-      <Hero />
-      <Introduction />
+      <section className='bg-[url("../hacker.gif")] bg-cover bg-center bg-opacity-5 bg-no-repeat'>
+        <Hero />
+        <Introduction />
+      </section>
       <Chapters />
       <Roadmap />
       <Leading />

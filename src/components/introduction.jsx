@@ -2,13 +2,16 @@ import React from "react";
 
 const Introduction = () => {
   const titleStyle = "text-[20px] md:text-[28px] mb-1 mt-4";
-  const textStyle = "text-text_grey font-light text-[12px] md:text-[16px]";
-  const listItemStyle = "list-item text-text_grey inline-block mb-2 text-[11px] md:text-[14px] font-light";
+  const textStyle = " text-text-grey font-light text-[12px] md:text-[16px]";
+  const listItemStyle =
+    "list-item inline-block mb-2 text-[11px] md:text-[14px] font-light";
   const listHeader = "font-bold mr-1";
 
   return (
-    <div className="body_padding top_padding">
-      <h2 className="text-title_moblie md:text-title leading-none">Introduction</h2>
+    <div className="body_padding top_padding bg-black bg-opacity-50">
+      <h2 className="text-title_moblie md:text-title leading-none">
+        Introduction
+      </h2>
       <section>
         <h3 className={titleStyle}>Welcome to Dev Inu</h3>
         <p className={textStyle}>
