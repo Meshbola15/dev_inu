@@ -13,9 +13,9 @@ export const DogData = [
   { image: pix1, text: "Dog 02", price: 5245, status: "Increased" },
   { image: pix2, text: "Dog 03", price: 4985, status: "Decreased" },
   // { image: pix3, text: "Dog 04", price: 4585, status: "Decreased" },
-  { image: pix4, text: "Dog 05", price: 4585, status: "Decreased" },
-  { image: pix5, text: "Dog 06", price: 4585, status: "Decreased" },
+  { image: pix4, text: "Dog 04", price: 4585, status: "Decreased" },
+  { image: pix5, text: "Dog 05", price: 4585, status: "Decreased" },
   // { image: pix6, text: "Dog 07", price: 4585, status: "Decreased" },
   // { image: pix7, text: "Dog 08", price: 4585, status: "Decreased" },
-  { image: pix8, text: "Dog 09", price: 4585, status: "Decreased" },
+  { image: pix8, text: "Dog 06", price: 4585, status: "Decreased" },
 ];
