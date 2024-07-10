@@ -49,3 +49,18 @@
   );
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#93d5e3",endColorstr="#4e5b74",GradientType=1);
 }
+
+.previewBox {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-style: normal;
+  font-size: clamp(20px, 5vw + 1rem, 40px);
+  font-weight: normal;
+  line-height: 1em;
+  color: #ffdc05;
+  text-shadow: 0px 0px 0 rgb(234, 0, 2), -1px 1px 0 rgb(234, 0, 2),
+    -2px 2px 0 rgb(234, 0, 2), -3px 3px 0 rgb(234, 0, 2),
+    -4px 4px 0 rgb(234, 0, 2), -5px 5px 0 rgb(234, 0, 2),
+    -6px 6px 5px rgba(0, 0, 0, 1), -6px 6px 1px rgba(0, 0, 0, 0.5),
+    0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+

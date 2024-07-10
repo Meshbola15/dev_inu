@@ -12,12 +12,12 @@ const LeadingCont = ({ image, text, onVote, isSelected }) => (
     className={`gradient px-[1px] py-[1px] rounded-lg md:rounded-2xl `}
   >
     <div
-      className={`w-full bg-darkBlue flex items-center justify-center px-2 md:px-3 py-2 gap-2 md:gap-6 rounded-lg md:rounded-2xl cursor-pointer hover:bg-yellow ${
+      className={`w-full bg-darkBlue flex flex-col items-center justify-center px-2 md:px-3 py-2 gap-2 md:gap-6 rounded-lg md:rounded-2xl cursor-pointer hover:bg-yellow ${
         isSelected ? "bg-yellow" : ""
       }`}
       onClick={onVote}
     >
-      <img src={image} alt="Dog" className="w-[60px] md:w-[80px]" onClick={onVote} />
+      <img src={image} alt="Dog" className="w-[120px] md:w-[160px]" onClick={onVote} />
       <p className="mr-2 text-sm md:text-text md:mr-6" onClick={onVote}>{text}</p>
     </div>
   </div>
@@ -144,7 +144,7 @@ const Leading = () => {
   }, [leadingContainerData.length]);
 
   return (
-    <div className="relative body_padding top_padding my-10 w-full">
+    <div className="relative body_padding top_padding my-10 w-full overflow-hidden">
       <div className="block md:hidden">
         <section
           className="flex items-center transition-transform duration-500"

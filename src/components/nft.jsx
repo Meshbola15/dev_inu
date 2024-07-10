@@ -17,7 +17,7 @@ const NFT = () => {
     return () => clearInterval(interval);
   }, []);
   return (
-    <div className="body_padding top_padding">
+    <div className="body_padding top_padding overflow-hidden">
       <h3 className="text-white text-title_moblie md:text-title mb-8">NFT's</h3>
       <div className="flex items-center justify-center mx-auto">
         <section

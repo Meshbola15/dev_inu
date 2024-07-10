@@ -50,13 +50,15 @@ const FaqCard = ({ question, answer, index }) => {
   return (
     <div
       ref={ref}
-      className={`bg-darkBlue p-4 select-none border-b-[0.1px] border-yellow border-opacity-30 transition-opacity duration-1000 ${
+      className={`bg-darkBlue p-4 select-none cursor-pointer w-full bg-transparent border-b-[0.1px] border-yellow border-opacity-30 transition-opacity duration-1000 ${
         inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
       style={{ transitionDelay: `${index * 0.1}s` }}
+      onClick={() => setIsOpen(!isOpen)}
+      role="button"
+      aria-expanded={isOpen}
     >
       <div
-        onClick={() => setIsOpen(!isOpen)}
         className="flex justify-between items-center cursor-pointer"
         role="button"
         aria-expanded={isOpen}
@@ -66,7 +68,7 @@ const FaqCard = ({ question, answer, index }) => {
         </h3>
         <AiFillPlusCircle
           onClick={() => setIsOpen(!isOpen)}
-          className={`text-yellow text-3xl transition-transform duration-300 ${
+          className={`text-yellow text-3xl transition-transform duration-300 cursor-pointer ${
             isOpen ? "rotate-45" : "rotate-0"
           }`}
         />
@@ -87,18 +89,23 @@ const FaqCard = ({ question, answer, index }) => {
 
 const Faq = () => {
   return (
-    <section
-      id="faq"
-      className="body_padding top_padding relative animate-fade-up animate-once animate-duration-2000 z-0"
-    >
-      <h2 className="text-left text-title_moblie md:text-title">
-        Dev Inu FAQs
-      </h2>
-      {FaqList.map((item, index) => (
-        <FaqCard key={index} question={item.question} answer={item.answer} index={index} />
-      ))}
-      <div className="w-[600px] h-[600px] bg-yellow absolute rounded-full blur-[600px] bg-opacity-55 -bottom-[300px] -right-[300px] overflow-hidden z-0 " />
-    </section>
+    <>
+      <section
+        id="faq"
+        className="body_padding top_padding relative animate-fade-up animate-once animate-duration-2000 z-0 overflow-hidden"
+      >
+        <h2 className="text-left text-title_mobile md:text-title">
+          Dev Inu FAQs
+        </h2>
+        {FaqList.map((item, index) => (
+          <FaqCard key={index} question={item.question} answer={item.answer} index={index} />
+        ))}
+        <div
+          className="w-[600px] h-[600px] bg-yellow absolute rounded-full blur-[600px] bg-opacity-55 -bottom-[300px] -right-[300px] overflow-hidden"
+          style={{ pointerEvents: 'none', zIndex: '-1' }}
+        />
+      </section>
+    </>
   );
 };
 

@@ -30,7 +30,7 @@ const ChapterBlock = ({
         }`}
       >
         <section className="w-full h-fit gradient px-[1px] py-[1px] rounded-2xl">
-          <section className="flex w-full h-[120px] md:h-[200px] justify-center flex-col border bg-darkBlue px-4 md:px-8 rounded-2xl">
+          <section className="flex w-full h-[150px] md:h-[200px] justify-center flex-col border bg-darkBlue px-4 md:px-8 rounded-2xl">
             <h3 className="text-yellow text-[12px] leading-none md:leading-snug md:text-[calc(20px - 5vw)] font-bold mb-[2px] md:mb-1">
               {chapter}
             </h3>
@@ -39,7 +39,7 @@ const ChapterBlock = ({
             </p>
             <p className="text-[7px] md:text-xs text-gray-300">{text}</p>
             {hasCode && (
-              <div className="hidden md:block">
+              <div className=" block">
                 <article className="flex flex-col my-1 md:my-2 w-3/4 rounded-lg text-gray-500 text-[7px] md:text-xs">
                   <div className="flex items-center justify-between bg-[#CAD5DE] px-2 py-[2px] md:py-1 rounded-t-lg">
                     <p>Javascript</p>
@@ -66,7 +66,7 @@ const ChapterBlock = ({
         <>
          
           <section className="flex flex-col items-center justify-center">
-            <div className="h-[120px] w-[120px] md:h-[200px] md:w-[200px] m-0 p-0">
+            <div className="h-[150px] w-[150px] md:h-[200px] md:w-[200px] m-0 p-0">
               <img src={image} alt="" />
             </div>
             <div className="w-0.5 bg-yellow h-[15px] md:h-[35px]" />

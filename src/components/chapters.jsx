@@ -7,7 +7,7 @@ const Chapters = () => {
   return (
     <div
       id="chronicles"
-      className="px-auto w-screen top_padding body_padding flex items-center justify-center flex-col relative"
+      className="px-auto w-screen top_padding body_padding flex items-center justify-center flex-col relative overflow-hidden"
     >
       {ChaptersData.map((item, index) => (
         <ChapterBlock

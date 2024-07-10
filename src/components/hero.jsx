@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import inu from "../assets/inu_img.svg";
-import hero_txt from "../assets/hero_txt.png";
 import hero_bg from "../assets/hero_bg_img.svg";
 import { useInView } from "react-intersection-observer";
-import second from '../../hacker.gif'
+import { RiFileCopyLine } from "react-icons/ri";
+import { FaCheck } from "react-icons/fa6";
 
 const Hero = () => {
   const { ref, inView } = useInView({ threshold: 0.5, triggerOnce: true });
+  const [isCopied, setIsCopied] = React.useState(false);
+
+  useEffect(() => {
+    isCopied && setTimeout(() => setIsCopied(false), 2000);
+  }, [isCopied]);
+
   return (
     <div
       id="home"
@@ -15,15 +21,41 @@ const Hero = () => {
       } mt-[50px] md:mt-0`}
     >
       <section className="w-full min-h-screen flex flex-col-reverse body_padding top_padding items-center justify-center md:justify-between md:flex-row z-20">
-        <section className="overflow-hidden flex flex-col items-center md:items-start">
-          <img
+        <section className="flex flex-col items-center md:items-start">
+          {/* <img
             src={hero_txt}
             alt="hero text"
-            className="overflow-hidden animate-wiggle animate-infinite animate-duration-[3000ms]"
-          />
+            className="overflow-hidden animate-wiggle animate-infinite animate-duration-[3000ms] w-full md:w-[55vw] animate-delay-[2ms] animate-ease-linear animate-fill-both"
+          /> */}
+          <div class="previewBox text-center md:text-left animate-wiggle animate-infinite animate-duration-[3000ms] animate-delay-[2ms] animate-ease-linear animate-fill-both">
+            Dev Inu: Unleashing the Power of Developers in the Crypto World
+          </div>
           <p className="text-text_grey text-text mt-4 text-center md:text-left">
             A Tale of Recognition and Innovation in the Crypto Realm
           </p>
+          <div
+            className="flex items-center justify-items-start space-x-4 cursor-pointer my-4"
+            onClick={() => {
+              setIsCopied(true);
+              navigator.clipboard.writeText(
+                "0x7C79aCa06471dF1800B8f5DEE3C708e21d4645f5"
+              );
+            }}
+          >
+            <div className="">
+              <p className="text-[10px] md:text-text text-center text-yellow font-black text-wrap">
+                0x7C79aCa06471dF1800B8f5DEE3C708e21d4645f5
+              </p>
+            </div>
+            <div className="cursor-pointer flex items-center justify-start p-0">
+              {isCopied ? (
+                <FaCheck color="green" className="m-0 p-0" size={20} />
+              ) : (
+                <RiFileCopyLine  className="m-0 p-0 text-yellow" size={20} />
+              )}
+            </div>
+          </div>
+
           <button className="px-6 py-3 text-darkBlue bg-yellow rounded-lg text-text mt-4">
             Trade Now
           </button>

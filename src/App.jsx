@@ -9,10 +9,11 @@ import Footer from "./components/footer";
 import Leadership from "./components/leadership";
 import NFT from "./components/nft";
 import Introduction from "./components/introduction";
+import Tokenomics from "./components/Tokenomics";
 
 const App = () => {
   return (
-    <div className="bg-darkBlue p-0 m-0 box-border text-white font-Bricolage_Grotesque w-screen scroll-smooth overflow-hidden">
+    <div className="bg-darkBlue p-0 m-0 box-border text-white font-Bricolage_Grotesque w-screen scroll-smooth">
       <Navbar />
       <section className='bg-[url("../hacker.gif")] bg-cover bg-center bg-opacity-5 bg-no-repeat'>
         <Hero />
@@ -20,8 +21,10 @@ const App = () => {
       </section>
       <Chapters />
       <Roadmap />
+      <Tokenomics />
       <Leading />
       <Leadership />
+
       <NFT />
       <Faq />
       <Footer />
