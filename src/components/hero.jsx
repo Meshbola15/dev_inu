@@ -27,7 +27,7 @@ const Hero = () => {
             alt="hero text"
             className="overflow-hidden animate-wiggle animate-infinite animate-duration-[3000ms] w-full md:w-[55vw] animate-delay-[2ms] animate-ease-linear animate-fill-both"
           /> */}
-          <div class="previewBox text-center md:text-left animate-wiggle animate-infinite animate-duration-[3000ms] animate-delay-[2ms] animate-ease-linear animate-fill-both">
+          <div class="text-center font-bold text-[#FED909] text-2xl md:text-5xl md:text-left animate-wiggle animate-infinite animate-duration-[3000ms] animate-delay-[2ms] animate-ease-linear animate-fill-both">
             Dev Inu: Unleashing the Power of Developers in the Crypto World
           </div>
           <p className="text-text_grey text-text mt-4 text-center md:text-left">

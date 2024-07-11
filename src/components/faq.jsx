@@ -94,7 +94,7 @@ const Faq = () => {
         id="faq"
         className="body_padding top_padding relative animate-fade-up animate-once animate-duration-2000 z-0 overflow-hidden"
       >
-        <h2 className="text-left text-title_mobile md:text-title">
+        <h2 className="text-left text-[32px] md:text-title">
           Dev Inu FAQs
         </h2>
         {FaqList.map((item, index) => (
