@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "../assets/menu_logo.svg";
+import logo from "../assets/dev_inu.png";
 
 const navLink = [
   { name: "Home", path: "#home" },

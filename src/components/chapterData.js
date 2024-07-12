@@ -50,7 +50,7 @@ export const ChaptersData = [
     chapter: "Chapter 5",
     image: dev_inu_5,
     title: "The Fair Launch",
-    text: "In June, the day arrived—the fair launch of Dev Inu. Powered by PinkSale, the launch was a resounding success, with the community rallying behind the project and the tokens quickly finding their way into the hands of eager supporters.",
+    text: "In July, the day arrived—the fair launch of Dev Inu. Powered by PinkSale, the launch was a resounding success, with the community rallying behind the project and the tokens quickly finding their way into the hands of eager supporters.",
     isLeft: true,
     isLast: false,
     hasCode: false,

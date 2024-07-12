@@ -1,5 +1,5 @@
 // import React from 'react'
-import logo from "../assets/menu_logo.svg";
+import logo from "../assets/dev_inu.png";
 import { FaTelegramPlane } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
