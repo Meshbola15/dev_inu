@@ -38,7 +38,7 @@ const TokenomicsData = [
 
 const Tokenomics = () => {
   return (
-    <div className="body_padding top_padding">
+    <div id="tokenomics" className="body_padding top_padding">
       <h2 className="text-[32px] md:text-title">Tokenomics</h2>
       <section className="w-full flex flex-col space-y-8 md:space-y-0 md:flex-row items-center justify-between top_padding">
         <img src={pie_chart} alt="pie chart" className="w-full md:w-[40vw]" />

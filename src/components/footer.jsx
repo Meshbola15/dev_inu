@@ -4,10 +4,12 @@ import { FaTelegramPlane } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 const footerLink = [
-  { name: "Home", path: "/" },
-  { name: "Chronicles", path: "#chronicles" },
+  { name: "Home", path: "#home" },
+  { name: "Chapters", path: "#chapters" },
   { name: "Roadmap", path: "#roadmap" },
-  { name: "FAQ", path: "#faq" },
+  { name: "Tokenomics", path: "#tokenomics" },
+  { name: "Partners", path: "#partners" },
+  { name: "Faq", path: "#faq" },
 ];
 const socialIcon = [
   { icon: <FaTelegramPlane />, path: "https://t.me/devinutoken" },

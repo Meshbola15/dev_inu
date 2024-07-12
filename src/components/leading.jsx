@@ -144,8 +144,8 @@ const Leading = () => {
   }, [leadingContainerData.length]);
 
   return (
-    <div className="relative body_padding top_padding my-10 w-full overflow-hidden">
-      <div className="block md:hidden">
+    <div className="relative body_padding top_padding my-10 w-full">
+      <div className="block md:hidden overflow-hidden">
         <section
           className="flex items-center transition-transform duration-500"
           style={{ transform: `translateX(-${scrollPosition * 100}%)` }}

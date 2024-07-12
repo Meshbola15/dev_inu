@@ -3,8 +3,10 @@ import logo from "../assets/dev_inu.png";
 
 const navLink = [
   { name: "Home", path: "#home" },
-  { name: "Chronicles", path: "#chronicles" },
+  { name: "Chapters", path: "#chapters" },
   { name: "Roadmap", path: "#roadmap" },
+  { name: "Tokenomics", path: "#tokenomics" },
+  { name: "Partners", path: "#partners" },
   { name: "Faq", path: "#faq" },
 ];
 
