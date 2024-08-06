@@ -6,7 +6,7 @@ import ChapterBlock from "./elements/ChapterBlock";
 const Chapters = () => {
   return (
     <div
-      id="chronicles"
+      id="chapters"
       className="px-auto w-screen top_padding body_padding flex items-center justify-center flex-col relative overflow-hidden"
     >
       {ChaptersData.map((item, index) => (

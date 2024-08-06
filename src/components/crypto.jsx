@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import pinksale from "../assets/logos/pinksale.png";
 import cyberscope from "../assets/logos/image.png";
 import dexview from "../assets/logos/dexview.svg";
@@ -25,6 +25,7 @@ const Crypto = () => {
         <h1 className="text-title_moblie md:text-title mb-6">Partners</h1>
         <div className="flex flex-wrap items-center justify-center gap-10">
           {Logo.map((item, index) => (
+            // eslint-disable-next-line react/jsx-key
             <div className="gradient px-1 py-1 rounded-2xl">
               <div key={index} className="flex items-center bg-black px-10 py-4 rounded-2xl">
                 <img

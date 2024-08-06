@@ -6,7 +6,7 @@ import { RiFileCopyLine } from "react-icons/ri";
 import { FaCheck } from "react-icons/fa6";
 
 const Hero = () => {
-  const { ref, inView } = useInView({ threshold: 0.5, triggerOnce: true });
+  const {inView } = useInView({ threshold: 0.5, triggerOnce: true });
   const [isCopied, setIsCopied] = React.useState(false);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const Hero = () => {
             alt="hero text"
             className="overflow-hidden animate-wiggle animate-infinite animate-duration-[3000ms] w-full md:w-[55vw] animate-delay-[2ms] animate-ease-linear animate-fill-both"
           /> */}
-          <div class="text-center font-bold text-[#FED909] text-2xl md:text-5xl md:text-left animate-wiggle animate-infinite animate-duration-[3000ms] animate-delay-[2ms] animate-ease-linear animate-fill-both">
+          <div className="text-center font-bold text-[#FED909] text-2xl md:text-5xl md:text-left animate-wiggle animate-infinite animate-duration-[3000ms] animate-delay-[2ms] animate-ease-linear animate-fill-both">
             Dev Inu: Unleashing the Power of Developers in the Crypto World
           </div>
           <p className="text-text_grey text-text mt-4 text-center md:text-left">
@@ -38,13 +38,13 @@ const Hero = () => {
             onClick={() => {
               setIsCopied(true);
               navigator.clipboard.writeText(
-                "0x7C79aCa06471dF1800B8f5DEE3C708e21d4645f5"
+                "0xdE71903B457f7e23d7f48B9273f79a7e07246882"
               );
             }}
           >
             <div className="">
               <p className="text-[10px] md:text-text text-center text-yellow font-black text-wrap">
-                0x7C79aCa06471dF1800B8f5DEE3C708e21d4645f5
+              0xdE71903B457f7e23d7f48B9273f79a7e07246882
               </p>
             </div>
             <div className="cursor-pointer flex items-center justify-start p-0">
@@ -56,9 +56,9 @@ const Hero = () => {
             </div>
           </div>
 
-          <button className="px-6 py-3 text-darkBlue bg-yellow rounded-lg text-text mt-4">
+          <a href="https://www.dexview.com/bsc/0xdE71903B457f7e23d7f48B9273f79a7e07246882" target="_blank" className="px-6 py-3 text-darkBlue bg-yellow rounded-lg text-text mt-4">
             Trade Now
-          </button>
+          </a>
         </section>
         <section className="overflow-hidden z-20 flex justify-center">
           <img

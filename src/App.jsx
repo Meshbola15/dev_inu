@@ -11,6 +11,7 @@ import NFT from "./components/nft";
 import Introduction from "./components/introduction";
 import Tokenomics from "./components/Tokenomics";
 import Crypto from "./components/crypto";
+import Certificate from "./components/cetificate";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
       <Chapters />
       <Roadmap />
       <Tokenomics />
+      <Certificate />
       <Crypto />
       <Leading />
       <Leadership />
